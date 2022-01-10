@@ -2,7 +2,7 @@ import React, { memo, useEffect, useState } from 'react';
 import { Animated, StyleProp, TouchableOpacity, View } from 'react-native';
 
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
-
+import TextView from '../../../../../components/TextView/TextView';
 import { style } from '../styles/tab.bar.button.styles';
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
@@ -33,6 +33,7 @@ export const BarButton: React.FC<Props> = memo(
     onLongPress,
     inactiveTintColor,
     springConfig,
+    tabName,
   }) => {
     const [animationValueThreshold] = useState(new Animated.Value(0));
 
@@ -77,6 +78,13 @@ export const BarButton: React.FC<Props> = memo(
             ) : (
               <View />
             )}
+            <TextView
+              style={options.labelStyle}
+              color={inactiveTintColor || 'white'}
+              tag
+            >
+              {tabName}
+            </TextView>
           </View>
         </AnimatedTouchable>
       </View>
@@ -93,6 +101,7 @@ export const TabBarButton: React.FC<Props> = memo(
     activeTintColor,
     springConfig,
     focusedButtonStyle,
+    tabName,
   }) => {
     const [animationValueThreshold] = useState(new Animated.Value(0));
 

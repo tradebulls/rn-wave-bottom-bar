@@ -49,7 +49,7 @@ export const FabTabBar: React.FC<BottomTabBarProps & CustomProps> = ({
   bottomBarContainerStyle,
   focusedButtonStyle,
 }) => {
-  console.log({ state, descriptors });
+  // console.log({ state, descriptors });
   const [{ width, height }, setDimensions] = useState({
     width: Dimensions.get('window').width,
     height: Dimensions.get('window').height,
@@ -221,6 +221,7 @@ export const FabTabBar: React.FC<BottomTabBarProps & CustomProps> = ({
             isFocused={isFocused}
             activeTintColor={options.tabBarActiveTintColor}
             inactiveTintColor={options.tabBarInactiveTintColor}
+            tabName={route.name}
           />
         );
       })}
