@@ -107,6 +107,7 @@ export const TabBarButton: React.FC<Props> = memo(
     activeTintColor,
     springConfig,
     focusedButtonStyle,
+    shadowColor,
   }) => {
     const [animationValueThreshold] = useState(new Animated.Value(0));
 
@@ -130,6 +131,7 @@ export const TabBarButton: React.FC<Props> = memo(
             {
               ...style.focusedButton,
               backgroundColor: activeTintColor || 'white',
+              shadowColor: shadowColor || 'black',
               transform: [
                 {
                   translateY: animationValueThreshold.interpolate({
@@ -139,7 +141,7 @@ export const TabBarButton: React.FC<Props> = memo(
                 },
               ],
             },
-            focusedButtonStyle,
+            isFocused ? focusedButtonStyle : {},
           ]}
           onLongPress={onLongPress}
         >

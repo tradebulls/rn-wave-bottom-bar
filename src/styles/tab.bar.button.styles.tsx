@@ -1,4 +1,4 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet, Platform } from 'react-native';
 
 export const style = StyleSheet.create({
   wrapper: {
@@ -15,13 +15,12 @@ export const style = StyleSheet.create({
     zIndex: -1,
     borderRadius: 32,
     elevation: 10,
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //   width: 0,
-    //   height: 7,
-    // },
-    // shadowOpacity: 0.41,
-    // shadowRadius: 9.11,
+    shadowOffset: {
+      width: 0,
+      height: 7,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
     justifyContent: 'center',
     alignItems: 'center',
   },

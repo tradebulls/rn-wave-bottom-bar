@@ -48,6 +48,7 @@ export const FabTabBar: React.FC<BottomTabBarProps & CustomProps> = ({
   springConfig,
   bottomBarContainerStyle,
   focusedButtonStyle,
+  shadowColor,
 }) => {
   // console.log({ state, descriptors });
   const [{ width, height }, setDimensions] = useState({
@@ -158,6 +159,7 @@ export const FabTabBar: React.FC<BottomTabBarProps & CustomProps> = ({
               isFocused={isFocused}
               activeTintColor={options.tabBarActiveTintColor}
               inactiveTintColor={options.tabBarInactiveTintColor}
+              shadowColor={shadowColor}
             />
           );
         })}
