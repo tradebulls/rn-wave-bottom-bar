@@ -73,7 +73,6 @@ export const BarButton: React.FC<Props> = memo(
               zIndex: 12,
               alignItems: 'center',
               justifyContent: 'center',
-              backgroundColor: 'green',
             }}
           >
             {options.tabBarIcon && !isFocused ? (
