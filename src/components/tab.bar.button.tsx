@@ -1,14 +1,8 @@
 import React, { memo, useEffect, useState } from 'react';
-import {
-  Animated,
-  StyleProp,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import { Animated, StyleProp, TouchableOpacity, View } from 'react-native';
 
 import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
-// import TextView from '../../../../../components/TextView/TextView';
+import TextView from '../../../../../components/TextView/TextView';
 import { style } from '../styles/tab.bar.button.styles';
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
@@ -84,13 +78,13 @@ export const BarButton: React.FC<Props> = memo(
             ) : (
               <View />
             )}
-            <Text
+            <TextView
               style={options.labelStyle}
               color={inactiveTintColor || 'white'}
-              tag
+              tab
             >
               {tabName}
-            </Text>
+            </TextView>
           </View>
         </AnimatedTouchable>
       </View>
