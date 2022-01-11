@@ -139,7 +139,7 @@ export const TabBarButton: React.FC<Props> = memo(
                 },
               ],
             },
-            isFocused ? focusedButtonStyle : {},
+            focusedButtonStyle,
           ]}
           onLongPress={onLongPress}
         >
