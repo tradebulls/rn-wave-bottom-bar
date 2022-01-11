@@ -68,7 +68,14 @@ export const BarButton: React.FC<Props> = memo(
           ]}
           onLongPress={onLongPress}
         >
-          <View style={{ zIndex: 12 }}>
+          <View
+            style={{
+              zIndex: 12,
+              alignItems: 'center',
+              justifyContent: 'center',
+              backgroundColor: 'green',
+            }}
+          >
             {options.tabBarIcon && !isFocused ? (
               options.tabBarIcon({
                 focused: isFocused,
