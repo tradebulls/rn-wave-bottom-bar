@@ -107,7 +107,6 @@ export const TabBarButton: React.FC<Props> = memo(
     activeTintColor,
     springConfig,
     focusedButtonStyle,
-    tabName,
   }) => {
     const [animationValueThreshold] = useState(new Animated.Value(0));
 
