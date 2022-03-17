@@ -1,4 +1,24 @@
 {
+  "name": "rn-wave-bottom-bar",
+  "version": "0.1.0-development",
+  "description": "🌊 Animated bottom bar for react-navigation, react-native.",
+  "main": "lib/commonjs/index.js",
+  "private": false,
+  "module": "lib/module/index.js",
+  "types": "lib/typescript/index.d.ts",
+  "react-native": "lib/module/index.js",
+  "files": [
+    "src",
+    "lib"
+  ],
+  "scripts": {
+    "test": "jest",
+    "typescript": "tsc --noEmit",
+    "prepare": "bob build",
+    "typescript:lint": "tslint --fix",
+    "typescript:typescheck": "tsc -p tsconfig.json --noEmit",
+    "semantic-release": "semantic-release"
+  },
   "@react-native-community/bob": {
     "source": "src",
     "output": "lib",
@@ -8,43 +28,42 @@
       "typescript"
     ]
   },
-  "_from": "rn-wave-bottom-bar@2.0.0",
-  "_id": "rn-wave-bottom-bar@2.0.0",
-  "_inBundle": false,
-  "_integrity": "sha512-PdWpsVmGw3+FUOz/yPAIuSAcPWdara1DCAHlBZlxZYEIazX+D9csGDuReMnhqMwox/v7fkNNPhNxGxT4VjQDEw==",
-  "_location": "/rn-wave-bottom-bar",
-  "_phantomChildren": {},
-  "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "rn-wave-bottom-bar@2.0.0",
-    "name": "rn-wave-bottom-bar",
-    "escapedName": "rn-wave-bottom-bar",
-    "rawSpec": "2.0.0",
-    "saveSpec": null,
-    "fetchSpec": "2.0.0"
-  },
-  "_requiredBy": [
-    "/"
+  "keywords": [
+    "react-native",
+    "react-navigation",
+    "bottom-bar",
+    "tab-bar"
   ],
-  "_resolved": "https://registry.npmjs.org/rn-wave-bottom-bar/-/rn-wave-bottom-bar-2.0.0.tgz",
-  "_shasum": "acff2d6828a6e8c710eeb74311f81c7879b48806",
-  "_spec": "rn-wave-bottom-bar@2.0.0",
-  "_where": "/Users/tradebulls/Malik/workspace/Git/TradingAppBottomTab",
-  "author": {
-    "name": "jeremy.barbe.zion@gmail.com"
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged && yarn typescript:typescheck"
+    }
   },
-  "bugs": {
-    "url": "https://github.com/Jm-Zion/rn-wave-bottom-bar/issues"
+  "lint-staged": {
+    "**/*.ts?(x)": [
+      "yarn typescript:lint"
+    ]
   },
-  "bundleDependencies": false,
+  "author": "jeremy.barbe.zion@gmail.com",
+  "license": "MIT",
+  "peerDependencies": {
+    "@react-navigation/bottom-tabs": "*",
+    "@react-navigation/native": "*",
+    "react": "*",
+    "react-native": "*",
+    "react-native-vector-icons": "*",
+    "react-native-safe-area-context": "^4.2.1"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/",
+    "access": "public"
+  },
   "dependencies": {
-    "d3-shape": "^1.3.7",
-    "react-native-safe-area-context": "^3.0.2"
+    "d3-shape": "^1.3.7"
   },
-  "deprecated": false,
-  "description": "🌊 Animated bottom bar for react-navigation, react-native.",
   "devDependencies": {
+    "react-native-safe-area-context": "^4.2.1",
     "@babel/core": "^7.4.4",
     "@babel/runtime": "^7.9.2",
     "@commitlint/cli": "^8.3.5",
@@ -79,61 +98,12 @@
     "tslint-react": "^4.2.0",
     "typescript": "^4.4.2"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jm-Zion/rn-wave-bottom-bar.git"
+  },
   "eslintIgnore": [
     "node_modules/",
     "lib/"
-  ],
-  "files": [
-    "src",
-    "lib"
-  ],
-  "homepage": "https://github.com/Jm-Zion/rn-wave-bottom-bar#readme",
-  "husky": {
-    "hooks": {
-      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
-      "pre-commit": "lint-staged && yarn typescript:typescheck"
-    }
-  },
-  "keywords": [
-    "react-native",
-    "react-navigation",
-    "bottom-bar",
-    "tab-bar"
-  ],
-  "license": "MIT",
-  "lint-staged": {
-    "**/*.ts?(x)": [
-      "yarn typescript:lint"
-    ]
-  },
-  "main": "lib/commonjs/index.js",
-  "module": "lib/module/index.js",
-  "name": "rn-wave-bottom-bar",
-  "peerDependencies": {
-    "@react-navigation/bottom-tabs": "*",
-    "@react-navigation/native": "*",
-    "react": "*",
-    "react-native": "*",
-    "react-native-vector-icons": "*"
-  },
-  "private": false,
-  "publishConfig": {
-    "registry": "https://registry.npmjs.org/",
-    "access": "public"
-  },
-  "react-native": "lib/module/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Jm-Zion/rn-wave-bottom-bar.git"
-  },
-  "scripts": {
-    "prepare": "bob build",
-    "semantic-release": "semantic-release",
-    "test": "jest",
-    "typescript": "tsc --noEmit",
-    "typescript:lint": "tslint --fix",
-    "typescript:typescheck": "tsc -p tsconfig.json --noEmit"
-  },
-  "types": "lib/typescript/index.d.ts",
-  "version": "2.0.0"
+  ]
 }
