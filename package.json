@@ -1,6 +1,6 @@
 {
   "name": "rn-wave-bottom-bar",
-  "version": "0.1.0-development",
+  "version": "2.1.3",
   "description": "🌊 Animated bottom bar for react-navigation, react-native.",
   "main": "lib/commonjs/index.js",
   "private": false,
