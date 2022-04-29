@@ -1,9 +1,9 @@
-import React, { memo, useEffect, useState } from 'react';
-import { Animated, StyleProp, TouchableOpacity, View } from 'react-native';
+import React, { memo, useEffect, useState } from "react";
+import { Animated, StyleProp, TouchableOpacity, View } from "react-native";
 
-import { BottomTabNavigationOptions } from '@react-navigation/bottom-tabs';
-import TextView from '../../../../../components/TextView/TextView';
-import { style } from '../styles/tab.bar.button.styles';
+import { BottomTabNavigationOptions } from "@react-navigation/bottom-tabs";
+import TextView from "../../../../../components/TextView/TextView";
+import { style } from "../styles/tab.bar.button.styles";
 
 const AnimatedTouchable = Animated.createAnimatedComponent(TouchableOpacity);
 
@@ -22,7 +22,7 @@ interface Props {
 export const defaultSpringConfig = {
   damping: 30,
   mass: 0.7,
-  stiffness: 250,
+  stiffness: 250
 };
 
 export const BarButton: React.FC<Props> = memo(
@@ -32,8 +32,9 @@ export const BarButton: React.FC<Props> = memo(
     onPress,
     onLongPress,
     inactiveTintColor,
+    focusedButtonStyle,
     springConfig,
-    tabName,
+    tabName
   }) => {
     const [animationValueThreshold] = useState(new Animated.Value(0));
 
@@ -41,9 +42,9 @@ export const BarButton: React.FC<Props> = memo(
       Animated.spring(animationValueThreshold, {
         toValue: isFocused ? 0 : 1,
         ...(springConfig || defaultSpringConfig),
-        useNativeDriver: true,
+        useNativeDriver: true
       }).start();
-    }, [isFocused, animationValueThreshold]);
+    }, [isFocused, animationValueThreshold, springConfig]);
 
     return (
       <View style={style.wrapper}>
@@ -60,35 +61,35 @@ export const BarButton: React.FC<Props> = memo(
                 {
                   scale: animationValueThreshold.interpolate({
                     inputRange: [0, 1],
-                    outputRange: [0, 1],
-                  }),
-                },
-              ],
+                    outputRange: [0, 1]
+                  })
+                }
+              ]
             },
+            isFocused ? focusedButtonStyle : {}
           ]}
-          onLongPress={onLongPress}
-        >
-          <View
+          onLongPress={onLongPress}>
+          {/* <View
             style={{
               zIndex: 12,
               alignItems: 'center',
               justifyContent: 'center',
             }}
-          >
+          > */}
+          <View style={style.tabBarLabelWrapper}>
             {options.tabBarIcon && !isFocused ? (
               options.tabBarIcon({
                 focused: isFocused,
-                color: inactiveTintColor || 'white',
-                size: 28,
+                color: inactiveTintColor || "white",
+                size: 28
               })
             ) : (
               <View />
             )}
             <TextView
               style={options.labelStyle}
-              color={inactiveTintColor || 'white'}
-              tab
-            >
+              color={inactiveTintColor || "white"}
+              tab>
               {tabName}
             </TextView>
           </View>
@@ -106,7 +107,7 @@ export const TabBarButton: React.FC<Props> = memo(
     onLongPress,
     activeTintColor,
     springConfig,
-    focusedButtonStyle,
+    focusedButtonStyle
   }) => {
     const [animationValueThreshold] = useState(new Animated.Value(0));
 
@@ -114,9 +115,9 @@ export const TabBarButton: React.FC<Props> = memo(
       Animated.spring(animationValueThreshold, {
         toValue: isFocused ? 0 : 1,
         ...(springConfig || defaultSpringConfig),
-        useNativeDriver: true,
+        useNativeDriver: true
       }).start();
-    }, [isFocused, animationValueThreshold]);
+    }, [isFocused, animationValueThreshold,springConfig]);
 
     return (
       <View style={style.wrapper}>
@@ -129,25 +130,24 @@ export const TabBarButton: React.FC<Props> = memo(
           style={[
             {
               ...style.focusedButton,
-              backgroundColor: activeTintColor || 'white',
+              backgroundColor: activeTintColor || "white",
               transform: [
                 {
                   translateY: animationValueThreshold.interpolate({
                     inputRange: [0, 1],
-                    outputRange: [-18, 100],
-                  }),
-                },
-              ],
+                    outputRange: [-18, 100]
+                  })
+                }
+              ]
             },
-            isFocused ? options.shadowStyle : {},
+            isFocused ? options.shadowStyle : {}
           ]}
-          onLongPress={onLongPress}
-        >
+          onLongPress={onLongPress}>
           {options.tabBarIcon
             ? options.tabBarIcon({
                 focused: isFocused,
-                color: 'white',
-                size: 28,
+                color: "white",
+                size: 28
               })
             : null}
         </AnimatedTouchable>

@@ -8,6 +8,7 @@ export const style = StyleSheet.create({
     zIndex: 1,
     elevation: 12,
   },
+  tabBarLabelWrapper: { zIndex: 12, alignItems: 'center' },
   focusedButton: {
     position: 'absolute',
     height: 60,
